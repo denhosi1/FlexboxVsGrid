@@ -1,0 +1,370 @@
+html {
+  background: #f5f7f8;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+nav {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;    
+}
+
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+}
+
+nav ul li {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto 5px;
+    display: inline-block;
+    list-style: none; 
+    text-align: center;
+    vertical-align: center;
+    background: yellow; 
+    flex: 1;
+}
+
+nav ul li:hover {
+    background: #333; 
+}
+
+nav ul li.active {
+    background: #222;
+}
+
+nav ul li a {
+    text-decoration: none;
+    max-width: 100px;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    display: inline-block;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav ul li:hover a {
+    color: #fff; 
+}
+
+nav ul li.active a {
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/*****     INTRO, CONCLUSION, FLEXBOX INTRO, GRID INTRO AND FLEXBOX VS GRID     *****/
+.intro ul,
+.conclusion ul,
+.flexbox-intro ul,
+.grid-intro ul,
+.flexbox-vs-grid ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro ul li,
+.conclusion ul li,
+.flexbox-intro ul li,
+.grid-intro ul li,
+.flexbox-vs-grid ul li {
+    flex: 1;
+    font-size: 26px;
+    margin-bottom: 40px;
+}
+
+/*****     FLEXBOX EXAMPLE     *****/
+
+.flex-example .wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex-example .wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.flex-example .header {
+  background: tomato;
+}
+
+.flex-example .footer {
+  background: lightgreen;
+}
+
+.flex-example .main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.flex-example .aside-1 {
+  background: gold;
+}
+
+.flex-example .aside-2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+    /* We tell both sidebars to share a row */
+  .flex-example .aside {
+    flex: 1 auto;
+  }
+}
+@media all and (min-width: 800px) {
+    /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+  .flex-example .main {
+    flex: 2 0px;
+  }
+
+  .flex-example .aside-1 {
+    order: 1;
+  }
+
+  .flex-example .main {
+    order: 2;
+  }
+
+  .flex-example .aside-2 {
+    order: 3;
+  }
+
+  .flex-example .footer {
+    order: 4;
+  }
+}
+
+.flex-example .flex {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.flex-example .flex span {
+    min-width: 100px;
+    height: 100px;
+    margin: 20px;
+    background: lawngreen;
+}
+
+/*****     FLEXBOX ISSUES     *****/
+
+.flex-issues .flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-issues .flex span {
+    flex-grow: 1;
+    width: 100px;
+    height: 100px; 
+    margin: 20px;
+    flex-flow: row wrap;
+    background: hotpink;
+}
+
+.flex-issues .flex span:nth-child(3n+3) {
+    background: aqua;
+    width: 240px;
+}
+
+/*****     GRID EXAMPLE     *****/
+
+.grid-example .grid-1 {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.grid-example .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  width: 100%;  
+  display: grid;
+}
+
+/* items */
+
+.grid-example .grid-1 div,
+.grid-example .grid-2 div {
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  }
+
+/* specific item styles */
+
+.grid-example .item-1 {
+  background: #b03532;
+}
+.grid-example .item-2 {
+  background: #33a8a5;
+}
+.grid-example .item-3 {
+  background: #30997a;
+}
+.grid-example .item-4 {
+  background: #6a478f;
+}
+.grid-example .item-5 {
+  background: #da6f2b;
+}
+.grid-example .item-6 {
+  background: #3d8bb1;
+}
+.grid-example .item-7 {
+  background: #e03f3f;
+}
+.grid-example .item-8 {
+  background: #59a627;
+}
+.grid-example .item-9 {
+  background: #4464a1;
+}
+
+.grid-example .grid-2 .item-1 {
+  grid-column: 1/ span 2;
+}
+
+/*****     JOINING FORCES     *****/
+
+.band {
+  width: 100%;  
+  display: grid;
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  
+}
+
+@media only screen and (min-width: 500px) {
+  .band {
+    grid-template-columns: 1fr 1fr;
+  }  
+  .band .item-1 {
+  grid-column: 1/ span 2;
+  }
+  .band .item-1 h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .band {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* card */
+
+.band .card {
+  min-height: 100%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+}
+
+.band .card:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+}
+
+.band .card article {
+  padding: 20px;
+  display: flex;
+  
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+.band .card .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.band .card p { 
+  flex: 1; /* make p grow to fill available space*/
+  line-height: 1.4;
+}
+
+/* typography */
+.band h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.band .card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 2em 0 0 0;
+}
+
+/*****     CAN I USE     *****/
+
+.can-i-use {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.can-i-use iframe {
+    height: 800px;
+    margin-bottom: 20px;
+}
+
+/*****     INTRO AND CONCLUSION     *****/
+.intro ul,
+.conclusion ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro ul li,
+.conclusion ul li {
+    flex: 1;
+    font-size: 26px;
+    margin-bottom: 40px;
+}
